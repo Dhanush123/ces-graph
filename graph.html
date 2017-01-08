@@ -37,6 +37,9 @@
       labels: [],
       datasets: [{data: [],label: "Temperature",backgroundColor: "rgba(251, 75, 75,1)"}]
     }
+    firebase.database().ref('tempary').once('value').then(function(snapshot) {
+      data1.datasets[0].data = snapshot.val();
+    });
     var myLineChart = new Chart(ctx, {
       type: "line",
       data: data1,
@@ -47,6 +50,9 @@
       labels: [],
       datasets: [{data: [],label: "Humidity",backgroundColor: "rgba(75, 251, 251,1)"}]
     }
+    firebase.database().ref('tempary').once('value').then(function(snapshot) {
+      data1.datasets[0].data = snapshot.val();
+    });
     var myLineChart2 = new Chart(ctx2, {
       type: "line",
       data: data2,
